@@ -2,10 +2,19 @@
 
 ## Building
 ```
-stack build
+$ stack build
 ```
 
 ## Running 
 ```
-stack exec project-haskell-gr35-exe
+$ stack exec project-haskell-gr35-exe
+```
+
+## Running tests
+```
+$ stack test
+```
+or
+```
+$ stack build --test
 ```
