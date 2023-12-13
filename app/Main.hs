@@ -1,6 +1,9 @@
 module Main (main) where
 
-import Lib
+import Pandigital (returnBiggestHexDoublePandigital)
 
 main :: IO ()
-main = someFunc
+main = do
+    n <- readLn
+    m <- returnBiggestHexDoublePandigital (n :: Int)
+    print m
