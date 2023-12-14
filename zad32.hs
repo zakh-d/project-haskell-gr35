@@ -1,6 +1,9 @@
 module Main where
 
-import Data.List
+-- Implementacja funkcji subsequences
+subsequences :: [a] -> [[a]]
+subsequences [] = [[]]
+subsequences (x:xs) = subsequences xs ++ map (x:) (subsequences xs)
 
 hasSubsetWithSum :: [Int] -> Int -> Bool
 hasSubsetWithSum nums targetSum = any (hasSubsetWithSum' targetSum) (subsequences nums)
@@ -12,8 +15,8 @@ hasSubsetWithSum' n (x:xs) = hasSubsetWithSum' (n - x) xs || hasSubsetWithSum' n
 
 main :: IO ()
 main = do
-    let a1 = [1, 2, 3, 4]
-    let a2 = [5, 6, 7, 2]
+    let a1 = [1, 22, 3, 4]
+    let a2 = [5, 6, 7, 4]
 
     if hasSubsetWithSum a1 (sum a1 `div` 2)
         then putStrLn "Zbiór A1 zawiera równoliczne rozłączne podzbiory o równej sumie."
