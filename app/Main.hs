@@ -6,9 +6,9 @@ import Divisors (sumM)
 
 program5 :: IO ()
 program5 = do
-    print "Enter n: "
+    putStrLn $ "Enter n: "
     n <- readLn
-    print(returnBiggestHexDoublePandigital (n :: Integer))
+    putStrLn $ show (returnBiggestHexDoublePandigital (n :: Integer))
 
 
 program26 :: IO ()
@@ -27,7 +27,7 @@ program26 = do
 
 main :: IO ()
 main = do
-    print "Enter program number: "
+    putStrLn $ "Enter program number: "
     n <- readLn
     case n of
         5 -> program5
