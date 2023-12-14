@@ -25,7 +25,8 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
+      Divisors
+      Pandigital
   other-modules:
       Paths_project_haskell_gr35
   autogen-modules:
