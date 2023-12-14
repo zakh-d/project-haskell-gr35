@@ -4,7 +4,7 @@ module Pandigital
 
 
 
-returnBiggestHexDoublePandigital :: Int -> Maybe Int
+returnBiggestHexDoublePandigital :: Integer -> Integer
 returnBiggestHexDoublePandigital n
-  | n > 15 = Nothing
-  | otherwise = Just $ foldl (\acc i -> acc * 16 + (n - i)) 0 (replicate 2 =<< [2..n])
+  | n > 15 = 0
+  | otherwise = foldl (\acc i -> acc * 16 + (n + 2 - i)) 0 (replicate 2 =<< [2..n + 2])
