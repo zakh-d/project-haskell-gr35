@@ -8,7 +8,7 @@ program5 :: IO ()
 program5 = do
     print "Enter n: "
     n <- readLn
-    print(returnBiggestHexDoublePandigital (n :: Int))
+    print(returnBiggestHexDoublePandigital (n :: Integer))
 
 
 program26 :: IO ()
@@ -26,6 +26,12 @@ program26 = do
     putStrLn $ "S(100000000, 100000) = " ++ show result5
 
 main :: IO ()
-main = program26
+main = do
+    print "Enter program number: "
+    n <- readLn
+    case n of
+        5 -> program5
+        26 -> program26
+        _ -> print "No such program"
 
     
