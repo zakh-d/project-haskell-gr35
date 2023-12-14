@@ -2,6 +2,7 @@ module Main (main) where
 
 import Pandigital (returnBiggestHexDoublePandigital)
 import Divisors (sumM)
+import Sets (hasSubsetWithSum)
 
 
 program5 :: IO ()

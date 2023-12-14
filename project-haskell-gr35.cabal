@@ -27,6 +27,7 @@ library
   exposed-modules:
       Divisors
       Pandigital
+      Sets
   other-modules:
       Paths_project_haskell_gr35
   autogen-modules:
