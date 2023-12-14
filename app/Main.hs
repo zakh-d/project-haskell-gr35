@@ -25,6 +25,21 @@ program26 = do
     putStrLn $ "S(1000000, 10000) = " ++ show result4
     putStrLn $ "S(100000000, 100000) = " ++ show result5
 
+
+program32 :: IO ()
+program32 = do
+    let a1 = [1, 22, 3, 4]
+    let a2 = [5, 6, 7, 4]
+
+    if hasSubsetWithSum a1 (sum a1 `div` 2)
+        then putStrLn "Zbiór A1 zawiera równoliczne rozłączne podzbiory o równej sumie."
+        else putStrLn "Zbiór A1 nie zawiera takich podzbiorów."
+
+    if hasSubsetWithSum a2 (sum a2 `div` 2)
+        then putStrLn "Zbiór A2 zawiera równoliczne rozłączne podzbiory o równej sumie."
+        else putStrLn "Zbiór A2 nie zawiera takich podzbiorów."
+
+
 main :: IO ()
 main = do
     putStrLn $ "Enter program number: "
@@ -32,6 +47,7 @@ main = do
     case n of
         5 -> program5
         26 -> program26
+        32 -> program32
         _ -> print "No such program"
 
     
