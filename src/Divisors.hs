@@ -13,15 +13,15 @@ divisors n
 maxDivisorCount :: Int -> Int -> Int
 maxDivisorCount n k = maximum [divisors j | j <- [n..n+k-1]]
 
--- sumM :: Int -> Int -> Int
--- sumM u k = sum [maxDivisorCount n k | n <- [1..u-k+1]]
-
 sumM :: Int -> Int -> Int
 -- calculates sum using sliding window approach
-sumM u k = sumM' 2 (maxDivisorCount 1 k) (maxDivisorCount 1 k)
+sumM u k = let start = maxDivisorCount 1 k in sumM' 2 (start) (start)
   where
     sumM' n prev _sum
       | n >= u - k + 2 = _sum
-      | divisors (n + k - 1) > prev = sumM' (n + 1) (divisors (n + k - 1)) (_sum + divisors (n + k - 1))
-      | divisors (n - 1) == prev = sumM' (n + 1) (maxDivisorCount n k) (_sum + maxDivisorCount n k)
+      | new > prev = sumM' (n + 1) (new) (_sum + new)
+      | old == prev = let newDivisorCount = maxDivisorCount n k in sumM' (n + 1) newDivisorCount (_sum + newDivisorCount)
       | otherwise = sumM' (n + 1) prev (_sum + prev)
+      where
+          new = divisors (n + k - 1)
+          old = divisors (n - 1)
